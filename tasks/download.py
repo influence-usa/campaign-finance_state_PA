@@ -1,8 +1,9 @@
 import os
 import logging
-import itertools
 
+import csv
 from io import StringIO
+from glob import iglob
 
 import requests
 
@@ -78,3 +79,30 @@ def download_dos(options):
             download_infos.append(info)
 
     download_all(download_infos, _get_response_loc_pair, options)
+
+
+def download_cfo(options):
+    if options.get('loglevel', None):
+        log.setLevel(options['loglevel'])
+
+    OUT_DIR = os.path.join(CACHE_DIR, 'cfo')
+    if not os.path.exists(OUT_DIR):
+        mkdir_p(OUT_DIR)
+
+    base_url = 'https://www.campaignfinanceonline.state.pa.us/pages/CFAnnualTotals.aspx'
+
+    def _get_response_loc_pair(dl_info):
+        filer_id = dl_info
+        loc = os.path.join(OUT_DIR, '{}.html'.format(filer_id))
+        response = requests.get(base_url, params={'Filer': filer_id})
+        return (response, loc)
+
+    filer_ids = set([])
+
+    for loc in iglob(os.path.join(
+            CACHE_DIR, 'dos', '*', '*', '[fF]iler.[Tt]xt')):
+        with open(loc, 'r') as fin:
+            for row in csv.reader(fin):
+                filer_ids.add(row[0])
+
+    download_all(list(filer_ids), _get_response_loc_pair, options)

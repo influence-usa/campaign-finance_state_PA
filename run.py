@@ -13,7 +13,7 @@ loglevels = {'info': logging.INFO,
              'warn': logging.WARN}
 
 possible_actions = ['download', 'extract', 'transform', 'validate']
-data_types = ['dos', ]
+data_types = ['dos', 'cfo']
 
 parser = argparse.ArgumentParser(description='Run scripts')
 
