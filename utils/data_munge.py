@@ -23,3 +23,7 @@ def map_vals(copy_map, original, template={}):
         val = get_key(_original, orig_loc)
         set_key(_transformed, trans_loc, val)
     return _transformed
+
+
+def sqlize_colname(cn):
+    return cn.lower().replace(' ', '_')

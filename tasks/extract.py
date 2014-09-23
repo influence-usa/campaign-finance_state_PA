@@ -1,6 +1,8 @@
 import logging
 import sys
 import os
+import re
+import json
 
 from lxml import etree
 from glob import iglob
@@ -10,7 +12,7 @@ try:
 except ImportError:
     sys.stderr.write("Warning, python-pandas not installed, won't be able to extract summaries from campaignfinanceonline\n")
 
-from settings import ORIG_DIR, CACHE_DIR
+from settings import ORIG_DIR, CACHE_DIR, REF_DIR
 from utils import mkdir_p
 from utils import set_up_logging
 
@@ -77,3 +79,53 @@ def extract_cfo(options):
             except Exception as e:
                 log.error('reading table dict {l} failed:'.format(l=loc))
                 log.error(e)
+
+
+def extract_dos(options):
+    if options.get('loglevel', None):
+        log.setLevel(options['loglevel'])
+
+    OUT_DIR = os.path.join(ORIG_DIR, 'dos')
+    if not os.path.exists(OUT_DIR):
+        mkdir_p(OUT_DIR)
+
+    DOS_CACHE = os.path.join(CACHE_DIR, 'dos')
+    DOS_REF = os.path.join(REF_DIR, 'dos')
+
+    with open(os.path.join(DOS_REF, 'dos_metadata.json'), 'r') as dm:
+        META = json.load(dm)
+
+    for floc in iglob(os.path.join(DOS_CACHE, '*', '*', '*.[Tt]xt')):
+        year, report_cycle = os.path.split(floc)[0].split(os.sep)[-2:]
+        data_type = re.sub(r'[0-9]', '',
+                           os.path.basename(os.path.splitext(floc)[0])).lower()
+        if data_type == 'readme':
+            continue
+        try:
+            table_meta = filter(lambda x: x['title'] == data_type.upper(),
+                                META[year][report_cycle])[0]
+        except IndexError:
+            log.error(
+                'no {dt} table found for year: {y}, report_cycle: {rc}'.format(
+                    dt=data_type, y=year, rc=report_cycle))
+            continue
+        except KeyError:
+            log.error(
+                'report_cycle {rc} seems not to exist for year: {y}'.format(
+                    y=year, rc=report_cycle))
+            continue
+        fields = table_meta['columns']
+        dtypes = table_meta['pandas_dtypes']
+        try:
+            data = pd.read_csv(floc, header=0, names=fields, dtype=dtypes)
+        except Exception as e:
+            log.error('trouble reading {fl}'.format(fl=floc))
+            log.error(e)
+        for filer_id, group in data.groupby('FILERID'):
+            outdir = os.path.join(OUT_DIR, data_type, year, report_cycle)
+            if not os.path.exists(outdir):
+                mkdir_p(outdir)
+            outloc = os.path.join(outdir, '{f}.json'.format(f=filer_id))
+            with open(outloc, 'wb') as outf:
+                json.dump(group.to_dict(outtype='records'), outf,
+                          ensure_ascii=False)
