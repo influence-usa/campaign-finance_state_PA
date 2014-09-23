@@ -1,0 +1,491 @@
+{
+  "parties": [
+    {
+      "party_name": "Democratic Party",
+      "party_code": "DEM"
+    },
+    {
+      "party_name": "Republican Party",
+      "party_code": "REP"
+    },
+    {
+      "party_name": "Constitutional Party",
+      "party_code": "CST"
+    },
+    {
+      "party_name": "Libertarian Party",
+      "party_code": "LIB"
+    },
+    {
+      "party_name": "Reform Party",
+      "party_code": "REF"
+    },
+    {
+      "party_name": "Other",
+      "party_code": "OTH"
+    }
+  ],
+  "counties": [
+    {
+      "county_name": "Adams",
+      "county_code": "01"
+    },
+    {
+      "county_name": "Allegheny",
+      "county_code": "02"
+    },
+    {
+      "county_name": "Armstrong",
+      "county_code": "03"
+    },
+    {
+      "county_name": "Beaver",
+      "county_code": "04"
+    },
+    {
+      "county_name": "Bedford",
+      "county_code": "05"
+    },
+    {
+      "county_name": "Berks",
+      "county_code": "06"
+    },
+    {
+      "county_name": "Blair",
+      "county_code": "07"
+    },
+    {
+      "county_name": "Bradford",
+      "county_code": "08"
+    },
+    {
+      "county_name": "Bucks",
+      "county_code": "09"
+    },
+    {
+      "county_name": "Butler",
+      "county_code": "10"
+    },
+    {
+      "county_name": "Cambria",
+      "county_code": "11"
+    },
+    {
+      "county_name": "Cameron",
+      "county_code": "12"
+    },
+    {
+      "county_name": "Carbon",
+      "county_code": "13"
+    },
+    {
+      "county_name": "Centre",
+      "county_code": "14"
+    },
+    {
+      "county_name": "Chester",
+      "county_code": "15"
+    },
+    {
+      "county_name": "Clarion",
+      "county_code": "16"
+    },
+    {
+      "county_name": "Clearfield",
+      "county_code": "17"
+    },
+    {
+      "county_name": "Clinton",
+      "county_code": "18"
+    },
+    {
+      "county_name": "Columbia",
+      "county_code": "19"
+    },
+    {
+      "county_name": "Crawford",
+      "county_code": "20"
+    },
+    {
+      "county_name": "Cumberland",
+      "county_code": "21"
+    },
+    {
+      "county_name": "Dauphin",
+      "county_code": "22"
+    },
+    {
+      "county_name": "Delaware",
+      "county_code": "23"
+    },
+    {
+      "county_name": "Elk",
+      "county_code": "24"
+    },
+    {
+      "county_name": "Erie",
+      "county_code": "25"
+    },
+    {
+      "county_name": "Fayette",
+      "county_code": "26"
+    },
+    {
+      "county_name": "Forest",
+      "county_code": "27"
+    },
+    {
+      "county_name": "Franklin",
+      "county_code": "28"
+    },
+    {
+      "county_name": "Fulton",
+      "county_code": "29"
+    },
+    {
+      "county_name": "Greene",
+      "county_code": "30"
+    },
+    {
+      "county_name": "Huntingdon",
+      "county_code": "31"
+    },
+    {
+      "county_name": "Indiana",
+      "county_code": "32"
+    },
+    {
+      "county_name": "Jefferson",
+      "county_code": "33"
+    },
+    {
+      "county_name": "Juniata",
+      "county_code": "34"
+    },
+    {
+      "county_name": "Lackawanna",
+      "county_code": "33"
+    },
+    {
+      "county_name": "Lancaster",
+      "county_code": "36"
+    },
+    {
+      "county_name": "Lawrence",
+      "county_code": "37"
+    },
+    {
+      "county_name": "Lebanon",
+      "county_code": "38"
+    },
+    {
+      "county_name": "Lehigh",
+      "county_code": "39"
+    },
+    {
+      "county_name": "Luzerne",
+      "county_code": "40"
+    },
+    {
+      "county_name": "Lycoming",
+      "county_code": "41"
+    },
+    {
+      "county_name": "McKean",
+      "county_code": "42"
+    },
+    {
+      "county_name": "Mercer",
+      "county_code": "43"
+    },
+    {
+      "county_name": "Mifflin",
+      "county_code": "44"
+    },
+    {
+      "county_name": "Monroe",
+      "county_code": "45"
+    },
+    {
+      "county_name": "Montgomery",
+      "county_code": "46"
+    },
+    {
+      "county_name": "Montour",
+      "county_code": "47"
+    },
+    {
+      "county_name": "Northampton",
+      "county_code": "48"
+    },
+    {
+      "county_name": "Northumberland",
+      "county_code": "49"
+    },
+    {
+      "county_name": "Perry",
+      "county_code": "50"
+    },
+    {
+      "county_name": "Philadelphia",
+      "county_code": "51"
+    },
+    {
+      "county_name": "Pike",
+      "county_code": "52"
+    },
+    {
+      "county_name": "Potter",
+      "county_code": "53"
+    },
+    {
+      "county_name": "Schuylkill",
+      "county_code": "54"
+    },
+    {
+      "county_name": "Snyder",
+      "county_code": "55"
+    },
+    {
+      "county_name": "Somerset",
+      "county_code": "56"
+    },
+    {
+      "county_name": "Sullivan",
+      "county_code": "57"
+    },
+    {
+      "county_name": "Susquehanna",
+      "county_code": "58"
+    },
+    {
+      "county_name": "Tioga",
+      "county_code": "59"
+    },
+    {
+      "county_name": "Union",
+      "county_code": "60"
+    },
+    {
+      "county_name": "Venango",
+      "county_code": "61"
+    },
+    {
+      "county_name": "Warren",
+      "county_code": "62"
+    },
+    {
+      "county_name": "Washington",
+      "county_code": "63"
+    },
+    {
+      "county_name": "Wayne",
+      "county_code": "64"
+    },
+    {
+      "county_name": "Westmoreland",
+      "county_code": "65"
+    },
+    {
+      "county_name": "Wyoming",
+      "county_code": "66"
+    },
+    {
+      "county_name": "York",
+      "county_code": "67"
+    }
+  ],
+  "report_cycles": [
+    {
+      "report_cycle_code": "1",
+      "report_cycle_name": "6th Tuesday Pre-Primary",
+      "report_cycle_group": "PRIMARY"
+    },
+    {
+      "report_cycle_code": "2",
+      "report_cycle_name": "2nd Friday Pre-Primary",
+      "report_cycle_group": "PRIMARY"
+
+    },
+    {
+      "report_cycle_code": "3",
+      "report_cycle_name": "30-day Post-Primary",
+      "report_cycle_group": "PRIMARY"
+
+    },
+    {
+      "report_cycle_code": "4",
+      "report_cycle_name": "6th Tuesday Pre-Election",
+      "report_cycle_group": "ELECTION"
+
+    },
+    {
+      "report_cycle_code": "5",
+      "report_cycle_name": "2nd Friday Pre-Election",
+      "report_cycle_group": "ELECTION"
+    },
+    {
+      "report_cycle_code": "6",
+      "report_cycle_name": "30-day Post-Election",
+      "report_cycle_group": "ELECTION"
+    },
+    {
+      "report_cycle_code": "7",
+      "report_cycle_name": "Annual",
+      "report_cycle_group": "ANNUAL"
+    },
+    {
+      "report_cycle_code": "8",
+      "report_cycle_name": "2nd Friday Pre-Special Election",
+      "report_cycle_group": "SPECIAL"
+    },
+    {
+      "report_cycle_code": "9",
+      "report_cycle_name": "30-day Post Special Election",
+      "report_cycle_group": "SPECIAL"
+    },
+    {
+      "report_cycle_code": "10",
+      "report_cycle_name": "Pre-Primary 24-Hour Reporting Period",
+      "report_cycle_group": "PRIMARY"
+    },
+    {
+      "report_cycle_code": "11",
+      "report_cycle_name": "Pre-Election 24-Hour Reporting Period",
+      "report_cycle_group": "ELECTION"
+    },
+    {
+      "report_cycle_code": "12",
+      "report_cycle_name": "Pre-Special Election 24-Hour Reporting Period",
+      "report_cycle_group": "SPECIAL"
+    }
+  ],
+  "filer_types": [
+    {
+      "filer_type_code": "1",
+      "filer_type_name": "Candidate"
+    },
+    {
+      "filer_type_code": "2",
+      "filer_type_name": "Committee"
+    },
+    {
+      "filer_type_code": "1",
+      "filer_type_name": "Lobbyist"
+    }
+  ],
+  "report_sections": [
+    {
+      "section_code": "IA",
+      "schedule": "I",
+      "part": "A"
+    },
+    {
+      "section_code": "IB",
+      "schedule": "I",
+      "part": "B"
+    },
+    {
+      "section_code": "IC",
+      "schedule": "I",
+      "part": "C"
+    },
+    {
+      "section_code": "IID",
+      "schedule": "II",
+      "part": "D"
+    },
+    {
+      "section_code": "IIF",
+      "schedule": "II",
+      "part": "F"
+    },
+    {
+      "section_code": "IIG",
+      "schedule": "II",
+      "part": "G"
+    }
+  ],
+  "offices": [
+    {
+      "office_code": "GOV",
+      "office_name": "Governor"
+    },
+    {
+      "office_code": "LTG",
+      "office_name": "Lieutenant Governor"
+    },
+    {
+      "office_code": "ATT",
+      "office_name": "Attorney General"
+    },
+    {
+      "office_code": "AUD",
+      "office_name": "Auditor General"
+    },
+    {
+      "office_code": "TRE",
+      "office_name": "State Treasurer"
+    },
+    {
+      "office_code": "SPM",
+      "office_name": "Justice of the Supreme Court"
+    },
+    {
+      "office_code": "SPR",
+      "office_name": "Judge of the Superior Court"
+    },
+    {
+      "office_code": "CCJ",
+      "office_name": "Judge of the Commonwealth Court"
+    },
+    {
+      "office_code": "STS",
+      "office_name": "Senator in the General Assembly"
+    },
+    {
+      "office_code": "STH",
+      "office_name": "Representative in the General Assembly"
+    },
+    {
+      "office_code": "CPJ",
+      "office_name": "Judge of the Court of Common Pleas"
+    },
+    {
+      "office_code": "MCJ",
+      "office_name": "Judge of the Municipal Court"
+    },
+    {
+      "office_code": "TCJ",
+      "office_name": "Judge of the Traffic Court"
+    },
+    {
+      "office_code": "PH1",
+      "office_name": "Mayor, City of Philadelphia"
+    },
+    {
+      "office_code": "PH2",
+      "office_name": "District Attorney, City of Philadelphia"
+    },
+    {
+      "office_code": "PH3",
+      "office_name": "City Controller, City of Philadelphia"
+    },
+    {
+      "office_code": "PH4",
+      "office_name": "City Council Member, City of Philadelphia"
+    },
+    {
+      "office_code": "PH5",
+      "office_name": "City Commissioner, City of Philadelphia"
+    },
+    {
+      "office_code": "PH6",
+      "office_name": "Register of Wills, City of Philadelphia"
+    },
+    {
+      "office_code": "PH7",
+      "office_name": "Clerk of Quarter Sessions, City of Philadelphia"
+    }
+  ]
+}
