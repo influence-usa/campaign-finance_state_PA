@@ -38,15 +38,14 @@ def extract_cfo(options):
             yield l[i:i+n]
 
     def _parse_data_tables(d):
-        return pd.io.html.read_html(etree.tostring(d), skiprows=1, header=1,
-                                    index_col=0)
+        return pd.io.html.read_html(etree.tostring(d), header=1, index_col=0)
 
     def _parse_year_table(y):
         return y.xpath('.//tr[1]/td[2]/span')[0].text
 
     def _extract_tables(pg_html):
         all_tables_container = pg_html.xpath(
-            "//div[@id='ContentPlaceHolder1_divCFSummary']")[0]
+            "//div[@id='ctl00_ContentPlaceHolder1_divCFSummary']")[0]
         summary_tables = {_parse_year_table(y): _parse_data_tables(d)[0]
                           for y, d in
                           _chunks(all_tables_container.xpath("table"), 2)}
