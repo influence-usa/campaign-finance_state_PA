@@ -16,7 +16,7 @@ def response_download(response, output_loc):
             with open(output_loc, 'wb') as output_file:
                 for chunk in response.iter_content():
                     output_file.write(chunk)
-            return response.headers['content-length']
+            return response.headers.get('content-length', 'N/A')
         except Exception as e:
             log.error(e)
     else:
@@ -39,11 +39,12 @@ def log_result(result):
         raise Exception
 
 
-def download(val, get_response_loc_pair):
+def download(val, get_response_loc_pair, options):
+    force = options.get('force', False)
     for i in xrange(5):
         _response, _loc = get_response_loc_pair(val)
         _url = _response.url
-        if is_not_cached(_response, _loc):
+        if is_not_cached(_response, _loc) or force:
             try:
                 content_length = response_download(_response, _loc)
                 return ('success', _url, _loc, content_length)
@@ -69,7 +70,7 @@ def is_not_cached(response, output_loc):
             'found {output_loc}: {size}'.format(
                 output_loc=output_loc,
                 size=downloaded_size))
-        size_on_server = int(response.headers['content-length'])
+        size_on_server = int(response.headers.get('content-length', 0))
         if downloaded_size != size_on_server:
             log.debug(
                 're-downloading {url}: {size}'.format(
@@ -92,10 +93,11 @@ def download_all(vals, get_response_loc_pair, options):
         pool = ThreadPool(thread_num)
         for val in vals:
             log.debug("async start for {}".format(str(val)))
-            pool.apply_async(download, args=(val, get_response_loc_pair),
+            pool.apply_async(download,
+                             args=(val, get_response_loc_pair, options),
                              callback=log_result)
         pool.close()
         pool.join()
     else:
         for val in vals:
-            log_result(download(val, get_response_loc_pair))
+            log_result(download(val, get_response_loc_pair, options))

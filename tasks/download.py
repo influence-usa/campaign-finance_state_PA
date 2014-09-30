@@ -103,6 +103,7 @@ def download_cfo(options):
             CACHE_DIR, 'dos', '*', '*', '[fF]iler.[Tt]xt')):
         with open(loc, 'r') as fin:
             for row in csv.reader(fin):
-                filer_ids.add(row[0])
+                if row[0]:
+                    filer_ids.add(row[0])
 
     download_all(list(filer_ids), _get_response_loc_pair, options)
