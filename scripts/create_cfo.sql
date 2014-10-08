@@ -25,12 +25,12 @@ CREATE TABLE "state_cf_pa_campaignfinanceonline" (
 
 COMMIT;
 
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2008.csv' CSV HEADER;
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2009.csv' CSV HEADER;
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2010.csv' CSV HEADER;
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2011.csv' CSV HEADER;
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2012.csv' CSV HEADER;
-\copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2013.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2008.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2009.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2010.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2011.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2012.csv' CSV HEADER;
+-- \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2013.csv' CSV HEADER;
 \copy state_cf_pa_campaignfinanceonline from 'data/transformed/cfo/2014.csv' CSV HEADER;
 
 COMMIT;
