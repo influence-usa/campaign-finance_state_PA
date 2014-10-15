@@ -82,3 +82,58 @@ def transform_cfo(options):
         agg_joined = cycle_aggs.join(filer_info, how='left')
         outloc = os.path.join(OUT_DIR, '{c}.csv'.format(c=cycle))
         agg_joined.to_csv(outloc)
+
+
+def transform_dos(options):
+    if options.get('loglevel', None):
+        log.setLevel(options['loglevel'])
+
+    force = options['force']
+
+    OUT_DIR = os.path.join(TRANS_DIR, 'dos')
+    if not os.path.exists(OUT_DIR):
+        mkdir_p(OUT_DIR)
+
+    dirs = defaultdict(list)
+    DOS_ORIG = os.path.join(ORIG_DIR, 'dos')
+
+    filing_types = os.listdir(DOS_ORIG)
+    for filing_type in filing_types:
+        years = os.listdir(os.path.join(DOS_ORIG, filing_type))
+        for year in years:
+            periods = os.listdir(os.path.join(DOS_ORIG, filing_type, year))
+            for period in periods:
+                dirs[filing_type].append((year, period))
+
+    def _build_table(filing_type, json_loc):
+        try:
+            return pd.DataFrame(pd.json.load(open(json_loc)))
+        except Exception as e:
+            log.error('trouble reading {}'.format(json_loc))
+            log.error(e)
+            return pd.DataFrame()
+
+    def _combine_tables(filing_type, subdir_info):
+        table_dir = os.path.join(*(DOS_ORIG, filing_type)+subdir_info)
+        return pd.concat([_build_table(filing_type, json_loc) for json_loc in
+                          iglob(os.path.join(table_dir, '*.json'))])
+
+    for filing_type, reporting_periods in dirs.iteritems():
+        for year, period in reporting_periods:
+            _dir = os.path.join(OUT_DIR, filing_type, year)
+            out_loc = os.path.join(_dir, period+'.csv')
+            if not os.path.exists(_dir):
+                log.debug('creating directory {}'.format(_dir))
+                mkdir_p(_dir)
+            out_loc = os.path.join(_dir, period+'.csv')
+            if (not force) and (os.path.exists(out_loc)):
+                log.debug('already exists, not re-doing: {}'.format(out_loc))
+            else:
+                _table = _combine_tables(filing_type, (year, period))
+                try:
+                    with open(out_loc, 'wb') as outfile:
+                        _table.to_csv(outfile, encoding='utf8')
+                        log.info('wrote {}'.format(out_loc))
+                except Exception as e:
+                    log.error('error writing file {}'.format(out_loc))
+                    log.error(e)
