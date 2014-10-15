@@ -17,7 +17,7 @@
       "RECAMT"
     ],
     "pandas_dtypes": {
-      "CYCLE": "int64",
+      "CYCLE": "object",
       "RECDATE": "object",
       "RECAMT": "float64",
       "STATE": "object",
@@ -26,7 +26,7 @@
       "RECNAME": "object",
       "ADDRESS1": "object",
       "ADDRESS2": "object",
-      "EYEAR": "int64",
+      "EYEAR": "object",
       "FILERID": "object",
       "ZIPCODE": "object"
     },
@@ -70,11 +70,11 @@
       "INKIND"
     ],
     "pandas_dtypes": {
-      "CYCLE": "int64",
+      "CYCLE": "object",
       "BEGINNING": "float64",
       "PARTY": "object",
       "AMMEND": "object",
-      "EYEAR": "int64",
+      "EYEAR": "object",
       "ADDRESS2": "object",
       "FILERID": "object",
       "PHONE": "object",
@@ -131,14 +131,14 @@
       "EXPDESC"
     ],
     "pandas_dtypes": {
-      "CYCLE": "int64",
+      "CYCLE": "object",
       "EXPDESC": "object",
       "EXPAMT": "float64",
       "EXPNAME": "object",
       "CITY": "object",
       "ADDRESS1": "object",
       "ADDRESS2": "object",
-      "EYEAR": "int64",
+      "EYEAR": "object",
       "FILERID": "object",
       "ZIPCODE": "object",
       "EXPDATE": "object",
@@ -176,7 +176,7 @@
       "DBTDESC"
     ],
     "pandas_dtypes": {
-      "CYCLE": "int64",
+      "CYCLE": "object",
       "FILERID": "object",
       "STATE": "object",
       "DBTDATE": "object",
@@ -184,7 +184,7 @@
       "DBTAMT": "float64",
       "ADDRESS1": "object",
       "ADDRESS2": "object",
-      "EYEAR": "int64",
+      "EYEAR": "object",
       "DBTNAME": "object",
       "ZIPCODE": "object",
       "DBTDESC": "object"
@@ -249,9 +249,9 @@
       "CONTAMT1": "float64",
       "CONTAMT3": "float64",
       "CONTAMT2": "float64",
-      "EYEAR": "int64",
+      "EYEAR": "object",
       "FILERID": "object",
-      "CYCLE": "int64",
+      "CYCLE": "object",
       "ESTATE": "object",
       "STATE": "object",
       "CONTDESC": "object",
