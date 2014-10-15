@@ -2,12 +2,13 @@ import os
 import sys
 import logging
 import json
+from collections import defaultdict
 from glob import iglob
 
 try:
     import pandas as pd
 except ImportError:
-    sys.stderr.write("Warning, python-pandas not installed, won't be able to transform summaries from campaignfinanceonline\n")
+    sys.stderr.write("python-pandas not installed.")
 
 from settings import ORIG_DIR, TRANS_DIR
 from utils import mkdir_p
