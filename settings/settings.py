@@ -20,6 +20,7 @@ if not config:
     TRANS_DIR = os.path.join(DATA_DIR, 'transformed')
     CACHE_DIR = os.path.join(DATA_DIR, 'cache')
     ORIG_DIR = os.path.join(DATA_DIR, 'original')
+    AGG_DIR = os.path.join(DATA_DIR, 'agg')
     REF_DIR = os.path.join(basedir, 'ref')
     SCHEMA_DIR = os.path.join(basedir, 'schema')
     TEST_TRANS_DIR = os.path.join(TEST_DATA_DIR, 'transformed')
